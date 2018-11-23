@@ -38,17 +38,17 @@ $descri2 = explode('</p>',$descri1[1]);
 
 // ---------------------------------------------------- // 
 
-// PEGANDO O TÍTULO ---X--- PERGUNTAR COMO PEGAR AS 2 NOTICIAS COMO ELAS TEM AS MESMAS CLASSES E ETC
+// PEGANDO O TÍTULO ---X--- 2 NOTICIAS COM IMAGEM E TITULO
 $titulo3 = explode('<h3 class="mh-posts-digest-title mh-posts-digest-title-large">
 ',$dadosSite);
 $titulo4 = explode('</h3>', $titulo3[1]);
 
-// PEGANDO O TÍTULO PERGUNTAR COMO PEGAR AS 2 NOTICIAS COMO ELAS TEM AS MESMAS CLASSES E ETC
+// PEGANDO O TÍTULO 3 NOTICIAS COM SOMENTE O TITULO
 $titulo5 = explode('<h3 class="mh-posts-digest-title mh-posts-digest-title-small">', $dadosSite);
 $titulo6 = explode('</h3>',$titulo5[1]);
 
 // ----- 4
-// PEGANDO O TÍTULO ---X---  PERGUNTAR COMO PEGAR AS 2 NOTICIAS COMO ELAS TEM AS MESMAS CLASSES E ETC
+// PEGANDO O TÍTULO ---X---  2 NOTICIAS COMPLETAS (TITULO, DESCRIÇÃO E IMAGEM) NA VERTICAL
 $titulo7 = explode('<h3 class="entry-title mh-posts-list-title">
 ', $dadosSite);
 $titulo8 = explode('</h3>',$titulo7[1]);
