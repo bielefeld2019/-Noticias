@@ -3,27 +3,25 @@ $url = 'http://www.ambientebrasil.com.br/';
 
 $dadosSite = file_get_contents($url);
 
-$titulo1 = ('<h3 class="entry-title mh-posts-large-title">
-</h3>');
+// ----------------------------- //
+$tit1 = explode('<h3 class="mh-posts-digest-title mh-posts-digest-title-large">
+', $dadosSite);
+$titu1 = explode('</h3>', $tit1[1]);
 
-$titulo3 = ('<h3 class="mh-posts-digest-title mh-posts-digest-title-large">
-</h3>');
+$img1 = explode('<figure class="mh-posts-digest-thumb">
+', $dadosSite);
+$imgm1 = explode('</figure>', $img1[1]);
 
+// ----------------------------- //
+$not1 = array($tit1[0], $imgm1[1]);
 
-$not1 = array($titulo1, $titulo3, '7' );
-
-//foreach ($not1 as $noticia) {
-
-//echo $noticia;  
-
-if (in_array($titulo1, $not1)) {
-	echo "Valor valido";
+foreach ($not1 as $noticia1) {
+	echo $noticia1 . "<br />";
 }
-else{
+	
 
-	echo "Valor nao encontrado";
-}
-//}
+
+
 
 
 ?>
