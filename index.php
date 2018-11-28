@@ -26,7 +26,7 @@ $logo2 = explode('></figure>',$logo[0]);
 $img1 = explode('<div class="mh-image-caption mh-posts-large-caption"
 >',$dadosSite);
 $img2 = explode('</div>',$img1[0]);
-class="mh-widget mh-home-2 mh-widget-col-2 mh_magazine_posts_large"
+
 // PEGANDO O TÍTULO
 $titulo1 = explode('<h3 class="entry-title mh-posts-large-title">
 ',$dadosSite);
