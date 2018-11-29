@@ -1,76 +1,46 @@
-<style type="text/css"> 
-a:link
-{ 
-text-decoration:none; 
-font-size: 24px;
-color:black;
-font: arial;
-} 
-
-</style>
-
 <?php
 
-// URL DO SITE
 $url = 'http://www.ambientebrasil.com.br/';
 
-// PEGANDO TODO CONTEUDO
 $dadosSite = file_get_contents($url);
 
-// PEGANDO A IMAGEM
-$logo = explode('class="mh-posts-large-thumb">
-',$dadosSite);
-$logo2 = explode('></figure>',$logo[0]);
+//------
 
-// PEGANDO A IMAGEM
-$img1 = explode('<div class="mh-image-caption mh-posts-large-caption"
->',$dadosSite);
-$img2 = explode('</div>',$img1[0]);
+$tit1 = explode('<h3 class="mh-posts-digest-title mh-posts-digest-title-small">', $dadosSite);
+$titu1 = explode('</h3>', $tit1[1]);
 
-// PEGANDO O TÍTULO
-$titulo1 = explode('<h3 class="entry-title mh-posts-large-title">
-',$dadosSite);
-$titulo2 = explode('</h3>',$titulo1[1]);
+$not1 = array($tit1[0], $titu1[1]);
 
-// PEGANDO A DESCRIÇÃO
-$descri1 = explode('<p>',$dadosSite);
-$descri2 = explode('</p>',$descri1[1]);
+foreach ($not1 as $noticia1) {
+	echo $noticia1 . "<br />";
+}
 
-// ---------------------------------------------------- // 
+// ----------------------------- //
 
-// PEGANDO O TÍTULO ---X--- 2 NOTICIAS COM IMAGEM E TITULO
-$titulo3 = explode('<h3 class="mh-posts-digest-title mh-posts-digest-title-large">
-',$dadosSite);
-$titulo4 = explode('</h3>', $titulo3[1]);
+//$tit2 = explode('<div class="mh-row mh-posts-digest-wrap mh-posts-digest-small clearfix">', $dadosSite);
+//$titu2 = explode('</div>', $tit2[1]);
 
-// PEGANDO O TÍTULO 3 NOTICIAS COM SOMENTE O TITULO 
-$titulo5 = explode('<h3 class="mh-posts-digest-title mh-posts-digest-title-small">', $dadosSite);
-$titulo6 = explode('</h3>',$titulo5[1]);
+//$not2 = array($titu2[1], $titu2[2]);
 
-// ----- 4
-// PEGANDO O TÍTULO ---X---  2 NOTICIAS COMPLETAS (TITULO, DESCRIÇÃO E IMAGEM) NA VERTICAL 
-$titulo7 = explode('<h3 class="entry-title mh-posts-list-title">
+//foreach ($not2 as $noticia2) {
+//	echo $noticia2 . "<br />";
+//}
+
+// ----------------------------- //
+
+$tit3 = explode('<a class="mh-thumb-icon mh-thumb-icon-small-mobile">', $dadosSite);
+$titu3 = explode('</a>', $tit3[0]);
+
+$img3 = explode('<a class="mh-thumb-icon mh-thumb-icon-small-mobile"
 ', $dadosSite);
-$titulo8 = explode('</h3>',$titulo7[1]);
+$imgm3 = explode('></a>', $img3[0]);
 
-// PEGANDO A DESCRIÇÃO
-$descri7 = explode('<div class="mh-posts-list-excerpt clearfix">
-',$dadosSite);
-$descri8 = explode('</div>',$descri7[1]);
+$not3 = array($imgm3[2],$imgm3[3]);
+
+foreach ($not3 as $noticia3) {
+	echo $noticia3 . "<br />";
+
+}
 
 
-// ---------------------------------------------------- // 
-
-// IMPRIMIR NA TELA
-echo "<br><br>";
-echo "<table width='100'>
-
-  <tr>
-  		<td>".$logo[0]."<br><h2><strong>".$titulo2[0]."</strong></h2><h5>".$descri2[0]."</h5><br><h2>".$titulo4[0]."</h2><br><h4>".$titulo6[0]."</h4><br><h4>".$titulo8[0]."</h4><h5>".$descri8[0]."</h5></td>
-  		
-  	</tr>	
-
-  	</table>";
-
- 
 ?>
