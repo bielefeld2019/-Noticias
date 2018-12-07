@@ -1,67 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
 <style type="text/css"> 
 
 a:-webkit-any-link {
-    color: #151515;
-    margin-right: 40%;
+    color: black;
+    margin-bottom: 14px;
     text-decoration: none;
-    font-size: 20px;
+    font-size: unset;
     font-family: arial;
+    font-weight: bold;
+
 }
 
 p {
-	 color: #1C1C1C;
+    color: #0E0E0E;
     cursor: pointer;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 22px;
     font-family: arial;
-    margin-bottom: 3px;
-    
-}
-
+    }
 
 h3 {
-    
-    font-size: 20;
+    font-color: black;
+    font-family: arial;
     font-weight: bold;
-    margin-bottom: 3px;
+    font-size: 40px;
+    margin-bottom: 14px;
+
 }
 
+body{
+      background-color: #900;
+      color: #900;
+      border: 10%;
+      background-size: 60%;
+}
+img{
+    margin-top: 10px;
+    width: 720px;
+    height: 480px;
+}
 </style>
 
+</head>
+
+<body>
 
 <?php
 
-$url = 'http://www.ambientebrasil.com.br/';
-
+$url = 'http://www.ambientebrasil.com.br';
 $dadosSite = file_get_contents($url);
 
-// ============================= //
+$news = explode('class="attachment-mh-magazine-content size-mh-magazine-content wp-post-image"', $dadosSite);
+$news1 = explode('</a>', $news[1]);
 
-//	$tit1 = explode('<header class="mh-posts-large-header">
-//', $dadosSite);
-//	$titu1 = explode('</header>', $tit1[1]);
-//
-//	$not1 = array($tit1[0], $titu1[1]);
-//
-//	foreach ($not1 as $noticia1) {
-//	 echo $noticia1 . "<br />";
-//	}
-
-
-// ============================= //
-
-$tit2 = explode('<a class="mh-thumb-icon mh-thumb-icon-small-mobile">', $dadosSite);
-$titu2 = explode('</a>', $tit2[0]);
-
-$img2 = explode('<a class="mh-tuhmb-icon mh-thumb-icon-small-mobile"
+$news2 = explode('<a class="mh-tuhmb-icon mh-thumb-icon-small-mobile"
 ', $dadosSite);
-$imgm2 = explode('></a>', $img2[0]);
+$news3 = explode('></a>', $news2[0]);
 
-$not2 = array($imgm2[2],$imgm2[3]);
+// -- > PARA MOSTRAR O CONTEÚDO ( Notícia Principal )
+$not1 = array($news1[0], $news1[1], $news1[3],$news1[2]);
+foreach ($not1 as $noticia1) {  
+    echo $noticia1;
+}
 
-foreach ($not2 as $noticia2) {
-	echo $noticia2 . "<br />";
-
+// --> PARA MOSTRAR O CONTEÚDO ( Notícias Restantes )
+$not2 = array($news3[2],$news3[3]);
+foreach ($not2 as $noticia2) {  
+    
+    echo $noticia2;
 }
 
 ?>
+
+</body>
+</html>
