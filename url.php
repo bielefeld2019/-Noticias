@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Notícias</title>
 
 <style type="text/css"> 
 
@@ -12,7 +12,6 @@ a:-webkit-any-link {
     font-size: unset;
     font-family: arial;
     font-weight: bold;
-
 }
 
 p {
@@ -28,15 +27,15 @@ h3 {
     font-family: arial;
     font-weight: bold;
     font-size: 40px;
-    margin-bottom: 14px;
-
+    margin-bottom: 14px; 
 }
 
 body{
-      background-color: #900;
-      color: #900;
-      border: 10%;
-      background-size: 60%;
+      background-color: white;
+      color: white;
+      border: 8px;
+      padding: 12%;
+      background-size: 40%;
 }
 img{
     margin-top: 10px;
@@ -54,25 +53,37 @@ img{
 $url = 'http://www.ambientebrasil.com.br';
 $dadosSite = file_get_contents($url);
 
-$news = explode('class="attachment-mh-magazine-content size-mh-magazine-content wp-post-image"', $dadosSite);
-$news1 = explode('</a>', $news[1]);
+// ============ //
+$new = explode('<div id="mh_magazine_posts_large-5"
+', $dadosSite);
+ $news1 = explode('></div>', $new[0]);
 
 $news2 = explode('<a class="mh-tuhmb-icon mh-thumb-icon-small-mobile"
 ', $dadosSite);
 $news3 = explode('></a>', $news2[0]);
+// ============ //
 
 // -- > PARA MOSTRAR O CONTEÚDO ( Notícia Principal )
-$not1 = array($news1[0], $news1[1], $news1[3],$news1[2]);
-foreach ($not1 as $noticia1) {  
-    echo $noticia1;
+$not = array($new[1], $news1[3]);
+foreach ($not as $noticia) {  
+    echo $noticia;
 }
 
 // --> PARA MOSTRAR O CONTEÚDO ( Notícias Restantes )
 $not2 = array($news3[2],$news3[3]);
 foreach ($not2 as $noticia2) {  
-    
     echo $noticia2;
 }
+
+// --> PARA MOSTRAR A NOTÍCIA DA REDAÇÃO
+    $news4 = explode('<div class="mh-custom-posts-large-inner clearfix">', $dadosSite);
+    $news5 = explode('</div>', $news4[1]);
+
+    $not3 = array($news5[0], $news5[2]);
+    foreach ($not3 as $noticia3) {
+        echo "<br>";
+        echo $noticia3;
+    }
 
 ?>
 
