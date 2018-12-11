@@ -72,7 +72,8 @@ foreach ($not as $noticia) {
 // --> PARA MOSTRAR O CONTEÚDO ( Notícias Restantes )
 $not2 = array($news3[2],$news3[3]);
 foreach ($not2 as $noticia2) {  
-    echo $noticia2;
+   echo "<br>";
+    echo $noticia2 . "<br>";
 }
 
 // --> PARA MOSTRAR A NOTÍCIA DA REDAÇÃO
